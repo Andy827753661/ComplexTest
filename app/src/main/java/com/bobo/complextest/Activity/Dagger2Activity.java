@@ -10,10 +10,12 @@ import com.bobo.complextest.Component.DaggerLoginComponent;
 import com.bobo.complextest.Entitiy.UserBean;
 import com.bobo.complextest.MVP.Presenter.LoginPresenter;
 import com.bobo.complextest.MVP.Presenter.LoginPresenterByDagger2;
+import com.bobo.complextest.MVP.Presenter.PresenterTestQualifier;
 import com.bobo.complextest.MVP.Presenter.RegisterPresenter;
 import com.bobo.complextest.MVP.View.ILoginView;
 import com.bobo.complextest.MVP.View.IRegisterView;
 import com.bobo.complextest.Module.LoginModule;
+import com.bobo.complextest.Module.ModuleTestQualifier;
 import com.bobo.complextest.R;
 import com.bobo.complextest.Utils.ToastUtil;
 
@@ -36,11 +38,16 @@ public class Dagger2Activity extends BaseActivity implements ILoginView, IRegist
     @Inject
     LoginPresenterByDagger2 loginPresenterByDagger2;
 
+    @Inject
+    PresenterTestQualifier presenterTestQualifier;
+
     @BindView(R.id.et_username)
     EditText mUserName;
 
     @BindView(R.id.et_password)
     EditText mPassword;
+
+    private int mIndex;
 
     @OnClick(R.id.btn_login)
     void loginEvent() {// 节俭型MVP：把module的interface直接implements在presenter中
@@ -67,6 +74,16 @@ public class Dagger2Activity extends BaseActivity implements ILoginView, IRegist
         loginPresenterByDagger2.setUser(new UserBean(userName, password));
     }
 
+    @OnClick(R.id.btn_dagger2_qualifier)
+    void qualifierTest() {
+        mIndex += 1;
+        if (presenterTestQualifier == null) {
+            ToastUtil.show("dagger2 Qualifier fail");
+            return;
+        }
+        presenterTestQualifier.setUser(mIndex);
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +92,11 @@ public class Dagger2Activity extends BaseActivity implements ILoginView, IRegist
         mLoginPresenter = new LoginPresenter(this);
         mRegisterPresenter = new RegisterPresenter(this);
         // dagger2
-        DaggerLoginComponent.builder().loginModule(new LoginModule(this)).build().inject(this);
+        UserBean user1 = new UserBean("1", "1");
+        UserBean user2 = new UserBean("2", "2");
+        DaggerLoginComponent.builder()
+                .moduleTestQualifier(new ModuleTestQualifier(this, user1, user2))
+                .loginModule(new LoginModule(this)).build().inject(this);
     }
 
     @Override
