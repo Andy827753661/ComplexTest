@@ -1,0 +1,14 @@
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.idea/codeStyleSettings.xml
+.idea/misc.xml
+.idea/gradle.xml
+.idea/.name
+.DS_Store
+vitamio/build/
+/build
+/captures
+app/libs/
