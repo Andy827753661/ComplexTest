@@ -2,8 +2,8 @@
 package com.bobo.complextest.Module;
 
 import com.bobo.complextest.Entitiy.UserBean;
-import com.bobo.complextest.Interface.A;
-import com.bobo.complextest.Interface.B;
+import com.bobo.complextest.Annotation.A;
+import com.bobo.complextest.Annotation.B;
 import com.bobo.complextest.MVP.View.ILoginView;
 
 import dagger.Module;
