@@ -1,6 +1,7 @@
 
 package com.bobo.complextest.Api;
 
+import com.bobo.complextest.Constant.ApiConstant;
 import com.bobo.complextest.Entitiy.BookInfoDto;
 import com.bobo.complextest.Entitiy.HttpResult;
 
@@ -14,11 +15,7 @@ import rx.Observable;
 
 public interface RESTApi {
 
-//    @GET(ApiConstant.Api.BOOK_INFO_API)
-//    Observable<HttpResult<BookInfoDto>> getBookInfo(@Query(ApiConstant.Key.ID) int id);
-
-    //获取书籍详情
-    @GET("api/getBookInfo")
-    Observable<HttpResult<BookInfoDto>> getBookInfo(@Query("id") int id);
+    @GET(ApiConstant.Api.BOOK_INFO_API)
+    Observable<HttpResult<BookInfoDto>> getBookInfo(@Query(ApiConstant.Key.ID) int id);
 
 }

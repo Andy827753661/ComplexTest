@@ -22,12 +22,11 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <TextView
-                android:id="@+id/tv_book_name"
+            <Button
+                android:id="@+id/RxJava_And_Retrofit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView1" />
-
+                android:text="RxJava And Retrofit Test" />
 
             <Button
                 android:id="@+id/btn_butter_knife_test"

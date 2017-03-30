@@ -31,6 +31,7 @@
         <activity android:name=".Activity.GlideActivity" />
         <activity android:name=".Activity.DownloadActivity" />
         <activity android:name=".Activity.Dagger2Activity" />
+        <activity android:name=".Activity.RxJavaActivity"/>
 
         <service android:name=".Service.MyService" />
     </application>

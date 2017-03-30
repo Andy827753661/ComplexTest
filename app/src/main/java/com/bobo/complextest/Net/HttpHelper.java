@@ -24,7 +24,8 @@ import rx.schedulers.Schedulers;
 
 public class HttpHelper {
 
-    private RESTApi mRequest = new RetrofitHelper().getRetrofit().create(RESTApi.class);
+    private RESTApi mRequestRxJava1 = new RetrofitHelperRxJava1().getRetrofit()
+            .create(RESTApi.class);
 
     private CacheApi mCache = new RxCache.Builder().persistence(FileUtil.getCacheDirectory())
             .using(CacheApi.class);
@@ -41,9 +42,9 @@ public class HttpHelper {
         return SingletonHolder.mInstance;
     }
 
-    // 获取书籍详情
-    public void getBookInfo(int id, Observer<BookInfoDto> observer) {
-        Observable<BookInfoDto> observable = mRequest.getBookInfo(id)
+    // 获取书籍详情by RxJava1
+    public void getBookInfoByRxJava1(int id, Observer<BookInfoDto> observer) {
+        Observable<BookInfoDto> observable = mRequestRxJava1.getBookInfo(id)
                 .map(new HttpResultFunc<BookInfoDto>());
         Observable observableCache = mCache
                 .getBookInfo(observable, new DynamicKey(id), new EvictDynamicKey(false))
@@ -81,5 +82,4 @@ public class HttpHelper {
             return tReply.getData();
         }
     }
-
 }
