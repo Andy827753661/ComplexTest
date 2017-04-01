@@ -53,6 +53,12 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
+    @OnClick(R.id.btn_permission)
+    void permissionEvent() {
+        Intent intent = new Intent(MainActivity.this, PermissionsDispatcherActivity.class);
+        startActivity(intent);
+    }
+
     private int mCount = 0;
 
     @Override

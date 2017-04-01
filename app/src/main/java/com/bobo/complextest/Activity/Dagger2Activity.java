@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.widget.EditText;
 
 import com.bobo.complextest.Base.BaseActivity;
-import com.bobo.complextest.Component.DaggerLoginComponent;
+import com.bobo.complextest.Components.DaggerLoginComponent;
 import com.bobo.complextest.Entitiy.UserBean;
 import com.bobo.complextest.MVP.Presenter.LoginPresenter;
 import com.bobo.complextest.MVP.Presenter.LoginPresenterByDagger2;
