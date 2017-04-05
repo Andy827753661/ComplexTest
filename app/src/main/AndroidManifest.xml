@@ -16,10 +16,10 @@
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
-        android:name=".Application.MyApplication"
+        android:name="ook.yzx.tinker.Application"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -38,7 +38,11 @@
         <activity android:name=".Activity.RxJavaActivity" />
         <activity android:name=".Activity.PermissionsDispatcherActivity" />
         <activity android:name=".Base.BasePermissionActivity" />
+        <activity android:name=".Activity.TinkerTestActivity" />
 
+        <service
+            android:name=".Service.TinkerResultService"
+            android:exported="false" />
         <service android:name=".Service.MyService" />
     </application>
 

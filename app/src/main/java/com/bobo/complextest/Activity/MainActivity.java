@@ -59,6 +59,12 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
+    @OnClick(R.id.btn_tinker)
+    void tinkerTest() {
+        Intent intent = new Intent(MainActivity.this, TinkerTestActivity.class);
+        startActivity(intent);
+    }
+
     private int mCount = 0;
 
     @Override

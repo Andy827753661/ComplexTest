@@ -64,6 +64,12 @@
                 android:layout_height="wrap_content"
                 android:text="Permission Test"/>
 
+            <Button
+                android:id="@+id/btn_tinker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tinker Test"/>
+
         </LinearLayout>
 
     </ScrollView>
